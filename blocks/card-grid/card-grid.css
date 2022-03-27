@@ -1,0 +1,7 @@
+.card-grid {
+    max-width: 320px;
+    display: grid;
+    margin: 0 auto 0 auto;
+    padding: 36px 0 0 0;
+    row-gap: 20px;
+}

@@ -5,14 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
-    <title>Путешествие по России</title>
+    <title>Mesto</title>
 </head>
 
 <body>
-    <header class="header">
-        <img class="header__logo" src="images/logo.svg" alt="Логотип">
-    </header>
-
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="images/logo.svg" alt="Логотип">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="images/avatar.png" alt="Ваш аватар">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <p class="profile__job">Исследователь океана</p>
+                <button class="button profile__edit-button" type="button"></button>
+                <button class="button profile__add-button" type="button"></button>
+            </section>
+            <section class="card-grid">
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-1.jpg" alt="Фотография карточки">
+                    <p class="element__text">Мурманская область</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-2.jpg" alt="Фотография карточки">
+                    <p class="element__text">Камчатка</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-3.jpg" alt="Фотография карточки">
+                    <p class="element__text">Сахалин</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-4.png" alt="Фотография карточки">
+                    <p class="element__text">Куршская коса</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-5.jpg" alt="Фотография карточки">
+                    <p class="element__text">Байкал</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+                <div class="card-grid__element">
+                    <img class="element__img" src="images/image-6.jpg" alt="Фотография карточки">
+                    <p class="element__text">Рускеала</p>
+                    <button class="button element__like-button" type="button"></button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2022. Владислав Смирнов</p>
+        </footer>
+    </div>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="button popup__close-button" type="button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form">
+                <input class="popup__name-input" type="text">
+                <input class="popup__job-input" type="text">
+                <button class="button popup__save-button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

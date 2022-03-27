@@ -1,0 +1,11 @@
+.profile__job {
+    grid-area: job;
+    width: 282px;
+    text-align: center;
+    margin: 14px auto 0 auto;
+    font-size: 14px;
+    color: #FFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

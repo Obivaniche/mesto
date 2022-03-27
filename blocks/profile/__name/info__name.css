@@ -1,0 +1,13 @@
+.profile__name {
+    grid-area: name;
+    width: 189px;
+    text-align: center;
+    margin: 26px auto 0 auto;
+    padding: 0;
+    font-size: 27px;
+    font-weight: normal;
+    color: #FFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

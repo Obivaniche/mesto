@@ -1,0 +1,11 @@
+.card-grid__element {
+    display: grid;
+    grid-template-areas: "img img"
+                         "text like";
+    width: 282px;
+    height: 361px;
+    margin: auto;
+    background-color: #FFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}

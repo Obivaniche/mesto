@@ -1,0 +1,11 @@
+.profile {
+    max-width: 320px;
+    margin: auto;
+    padding: 42px 0 0 0;
+    display: grid;
+    grid-template-areas: "avatar avatar avatar"
+                         ". name edit"
+                         "job job job"
+                         "add add add";
+    grid-template-columns: 1fr 189px 1fr;
+}
