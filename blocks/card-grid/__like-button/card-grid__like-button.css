@@ -4,3 +4,7 @@
     height: 19px;
     background-image: url(../../../images/like_btn.svg);
 }
+
+.card-grid__like-button:active {
+    background-image: url(../../../images/like_btn_actv.png);
+}

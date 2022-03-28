@@ -2,7 +2,6 @@
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
 let saveButton = document.querySelector('.popup__save-button');
-let likeButton = document.querySelector('.card-grid__like-button');
 
 // Находим окно попапа в DOM
 let popup = document.querySelector('.popup');
@@ -17,16 +16,10 @@ function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
-// Обработчик активации и деактивации иконки «нравится»
-function activeLike() {
-    likeButton.classList.toggle('card-grid__like-button_active');
-}
-
 // Прикрепляем обработчики к кнопкам открыть, закрыть и нравится
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
 saveButton.addEventListener('click', closePopup);
-likeButton.addEventListener('click', activeLike);
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');
