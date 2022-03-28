@@ -12,9 +12,10 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/card-grid/card-grid.css);
 @import url(../blocks/card-grid/__element/card-grid__element.css);
-@import url(../blocks/card-grid/__element/__img/element__img.css);
-@import url(../blocks/card-grid/__element/__text/element__text.css);
-@import url(../blocks/card-grid/__element/__like-button/element__like-button.css);
+@import url(../blocks/card-grid/__img/card-grid__img.css);
+@import url(../blocks/card-grid/__text/card-grid__text.css);
+@import url(../blocks/card-grid/__like-button/card-grid__like-button.css);
+@import url(../blocks/card-grid/__like-button/_active/card-grid__like-button_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);

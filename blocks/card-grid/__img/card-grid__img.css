@@ -1,4 +1,4 @@
-.element__img {
+.card-grid__img {
     grid-area: img;
     object-fit: cover;
     object-position: center;

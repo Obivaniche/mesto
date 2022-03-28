@@ -1,0 +1,6 @@
+.card-grid__like-button {
+    margin: 30px 20px 30px auto;
+    width: 22px;
+    height: 19px;
+    background-image: url(../../../images/like_btn.svg);
+}

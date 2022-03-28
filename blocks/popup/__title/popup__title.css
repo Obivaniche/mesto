@@ -5,7 +5,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
 
     .popup__title {
         margin: 34px auto 0 auto;

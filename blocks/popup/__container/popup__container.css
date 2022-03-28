@@ -6,7 +6,7 @@
     border-radius: 10px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
 
     .popup__container {
         width: 430px;
