@@ -1,0 +1,16 @@
+.input {
+    width: 238px;
+    font-size: 14px;
+    border: none;
+    padding: 0 0 13px 0;
+    border-bottom: 1px solid rgb(0, 0, 0, .2);
+    outline: none;
+}
+
+@media screen and (max-width: 1280px) {
+
+    .input {
+        width: 358px;
+    }
+
+}

@@ -1,6 +1,6 @@
 .popup {
     font-family: 'inter', 'Helvetica Neue', Arial, sans-serif;
-    display: flex;
+    display: none;
     background-color: rgba(0, 0, 0, .5);
     position: fixed;
     justify-content: center;

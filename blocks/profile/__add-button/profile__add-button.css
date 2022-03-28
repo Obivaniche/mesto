@@ -4,5 +4,14 @@
     width: 282px;
     height: 50px;
     background-image: url(../../../images/add_btn.svg);
-    
+}
+
+@media screen and (max-width: 1280px) {
+
+    .profile__add-button {
+        margin: 75px 0 0 0;
+        width: 150px;
+        height: 50px;
+        background-image: url(../../../images/add_btn_s.svg);
+    }
 }

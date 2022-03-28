@@ -5,3 +5,10 @@
     width: 120px;
     height: 120px;
 }
+
+@media screen and (max-width: 1280px) {
+
+    .profile__avatar {
+        margin: 40px 0 0 0;
+    }
+}
