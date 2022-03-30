@@ -1,10 +1,10 @@
-.card-grid__like-button {
+.card__like-button {
     margin: 30px 20px 30px auto;
     width: 22px;
     height: 19px;
     background-image: url(../../../images/like_btn.svg);
 }
 
-.card-grid__like-button:active {
-    background-image: url(../../../images/like_btn_actv.png);
+.card__like-button:active {
+    background-image: url(../../../images/like_btn_actv.svg);
 }

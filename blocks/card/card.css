@@ -1,9 +1,8 @@
-.card-grid__element {
+.card {
     display: grid;
     grid-template-areas: "img img"
-                         "text like";
+                         "title like";
     width: 282px;
-    height: 361px;
     margin: auto;
     background-color: #FFFF;
     border-radius: 10px;

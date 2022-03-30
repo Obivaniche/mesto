@@ -22,36 +22,36 @@
                 <button class="button profile__add-button" type="button"></button>
             </section>
             <section class="card-grid">
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-1.jpg" alt="Фотография карточки">
-                    <p class="card-grid__text">Мурманская область</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-2.jpg" alt="Фотография карточки">
-                    <p class="card-grid__text">Камчатка</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-3.jpg" alt="Фотография карточки">
-                    <p class="card-grid__text">Сахалин</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-4.png" alt="Фотография карточки">
-                    <p class="card-grid__text">Куршская коса</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-5.jpg" alt="Фотография карточки">
-                    <p class="card-grid__text">Байкал</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
-                <div class="card-grid__element">
-                    <img class="card-grid__img" src="images/image-6.jpg" alt="Фотография карточки">
-                    <p class="card-grid__text">Рускеала</p>
-                    <button class="button card-grid__like-button" type="button"></button>
-                </div>
+                <article class="card">
+                    <img class="card__img" src="images/image-1.jpg" alt="Фотография карточки">
+                    <h2 class="card__title">Мурманская область</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
+                <article class="card">
+                    <img class="card__img" src="images/image-2.jpg" alt="Фотография карточки">
+                    <h2 class="card__title">Камчатка</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
+                <article class="card">
+                    <img class="card__img" src="images/image-3.jpg" alt="Фотография карточки">
+                    <h2 class="card__title">Сахалин</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
+                <article class="card">
+                    <img class="card__img" src="images/image-4.png" alt="Фотография карточки">
+                    <h2 class="card__title">Куршская коса</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
+                <article class="card">
+                    <img class="card__img" src="images/image-5.jpg" alt="Фотография карточки">
+                    <h2 class="card__title">Байкал</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
+                <article class="card">
+                    <img class="card__img" src="images/image-6.jpg" alt="Фотография карточки">
+                    <h2 class="card__title">Рускеала</h2>
+                    <button class="button card__like-button" type="button"></button>
+                </article>
             </section>
         </main>
         <footer class="footer">
@@ -62,10 +62,10 @@
         <div class="popup__container">
             <button class="button popup__close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-                <input class="input popup__name-input" type="text" value="Жак-Ив Кусто">
-                <input class="input popup__job-input" type="text" value="Исследователь океана">
-                <button class="button popup__save-button" type="submit">Сохранить</button>
+            <form class="form" name="profile">
+                <input class="form__input form__input_type_name" name="name" type="text" value="">
+                <input class="form__input form__input_type_job" name="job" type="text" value="">
+                <button class="button form__save-button" type="submit">Сохранить</button>
             </form>
         </div>
     </div>

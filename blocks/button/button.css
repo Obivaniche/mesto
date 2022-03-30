@@ -11,3 +11,7 @@
 .button:hover {
     opacity: .6;
 }
+
+.button:last-of-type:hover {
+    opacity: .8;
+}

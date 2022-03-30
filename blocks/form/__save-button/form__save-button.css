@@ -1,6 +1,6 @@
-.popup__save-button {
-    margin: 45px auto 0 auto;
-    border-radius: 5px;
+.form__save-button {
+    margin: 45px auto 25px auto;
+    border-radius: 2px;
     width: 238px;
     height: 46px;
     background-color: #000000;
@@ -10,8 +10,8 @@
 
 @media screen and (min-width: 1280px) {
 
-    .popup__save-button {
-        margin: 48px auto 0 auto;
+    .form__save-button {
+        margin: 48px auto 37px auto;
         width: 358px;
         height: 50px;
         font-size: 18px;
