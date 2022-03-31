@@ -47,7 +47,7 @@ function formSubmitHandler (evt) {
     profileJob.textContent = jobValue
 
     // Закрываем форму
-    closePopup(saveButton);
+    closePopup();
 }
 
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»

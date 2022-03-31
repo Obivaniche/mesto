@@ -1,5 +1,5 @@
 .form__input {
-    margin: 75px auto 0 auto;
+    margin: 30px auto 0 auto;
     width: 238px;
     font-size: 14px;
     border: none;
@@ -8,8 +8,8 @@
     outline: none;
 }
 
-.form__input:last-of-type {
-    margin: 30px auto 0 auto;
+.form__input:first-of-type {
+    margin: 75px auto 0 auto;
 }
 
 @media screen and (min-width: 1280px) {

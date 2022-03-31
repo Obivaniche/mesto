@@ -5,6 +5,10 @@
     background-image: url(../../../images/like_btn.svg);
 }
 
+.card__like-button:hover {
+    opacity: 0.5;
+}
+
 .card__like-button:active {
     background-image: url(../../../images/like_btn_actv.svg);
 }

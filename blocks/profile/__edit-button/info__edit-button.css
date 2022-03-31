@@ -6,6 +6,10 @@
     background-image: url(../../../images/edit_btn.svg);
 }
 
+.profile__edit-button:hover {
+    opacity: .6;
+}
+
 @media screen and (min-width: 1280px) {
 
     .profile__edit-button {
