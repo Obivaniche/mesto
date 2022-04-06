@@ -22,53 +22,43 @@
                 <button class="button profile__add-button" type="button"></button>
             </section>
             <section class="card-grid">
-                <article class="card">
-                    <img class="card__img" src="images/image-1.jpg" alt="Фотография карточки">
-                    <h2 class="card__title">Мурманская область</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
-                <article class="card">
-                    <img class="card__img" src="images/image-2.jpg" alt="Фотография карточки">
-                    <h2 class="card__title">Камчатка</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
-                <article class="card">
-                    <img class="card__img" src="images/image-3.jpg" alt="Фотография карточки">
-                    <h2 class="card__title">Сахалин</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
-                <article class="card">
-                    <img class="card__img" src="images/image-4.png" alt="Фотография карточки">
-                    <h2 class="card__title">Куршская коса</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
-                <article class="card">
-                    <img class="card__img" src="images/image-5.jpg" alt="Фотография карточки">
-                    <h2 class="card__title">Байкал</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
-                <article class="card">
-                    <img class="card__img" src="images/image-6.jpg" alt="Фотография карточки">
-                    <h2 class="card__title">Рускеала</h2>
-                    <button class="button card__like-button" type="button"></button>
-                </article>
+
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup">
+    <div class="popup popup-edit">
         <div class="popup__container">
-            <button class="button popup__close-button" type="button"></button>
+            <button class="button popup__close-button close-edit" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form" name="profile">
+            <form class="form form-edit" name="profile">
                 <input class="form__input form__input_type_name" name="name" type="text" value="">
                 <input class="form__input form__input_type_job" name="job" type="text" value="">
-                <button class="button form__save-button" type="submit">Сохранить</button>
+                <button class="button form__save-button save-edit" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
+    <div class="popup popup-add">
+        <div class="popup__container">
+            <button class="button popup__close-button close-add" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="form form-add" name="place">
+                <input class="form__input form__input_type_title" name="title" type="text" placeholder="Название" value="">
+                <input class="form__input form__input_type_link" name="link" type="text" placeholder="Ссылка на картинку" value="">
+                <button class="button form__save-button save-add" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+    <template id="card-template">
+        <article class="card">
+            <img class="card__img" src="url" alt="Фотография карточки">
+            <button class="button card__delete-button" type="button"></button>
+            <h2 class="card__title"></h2>
+            <button class="button card__like-button" type="button"></button>
+        </article>
+    </template>
     <script src="script.js"></script>
 </body>
 
