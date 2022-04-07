@@ -90,6 +90,34 @@ function editFormSubmit(evt) {
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 formEditElement.addEventListener('submit', editFormSubmit);
 
+function addImgSubmit(evt) {
+  // Эта строчка отменяет стандартную отправку формы
+  evt.preventDefault();
+
+  // Находим Template
+  const gridElement = cardTemplate.querySelector('.card').cloneNode(true);
+  
+  /*
+  // Получаем значение полей linkInput и titleInput из свойства value
+  const linkValue = linkInput.value
+  const titleValue = titleInput.value
+  */
+
+  // Вставляем новые значения с помощью textContent
+  gridElement.querySelector('.card__img').src = linkInput.value;  
+  gridElement.querySelector('.card__title').textContent = titleInput.value;  
+  gridElement.querySelector('.card__img').alt = titleInput.value;
+
+  // Отображаем карточку на странице
+  cardGrid.prepend(gridElement);
+
+  // Закрываем форму
+  closePopupAdd();  
+}
+
+// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
+formAddElement.addEventListener('submit', addImgSubmit);
+
 // Массив данных для карточек
 const initialCards = [{
   name: 'Мурманская область',
