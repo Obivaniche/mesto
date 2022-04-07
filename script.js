@@ -5,10 +5,12 @@ const closeEditButton = document.querySelector('.close-edit');
 const saveEditButton = document.querySelector('.save-edit');
 const closeAddButton = document.querySelector('.close-add');
 const saveAddButton = document.querySelector('.save-add');
+const closeImgButton = document.querySelector('.close-img');
 
 // Находим окно попапов в DOM
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
+const popupImg = document.querySelector('.poppup-img');
 
 // Прикрепляем обработчики к кнопкам открыть закрыть
 editButton.addEventListener('click', openPopupEdit);
@@ -30,11 +32,63 @@ const linkInput = formAddElement.querySelector('.form__input_type_link');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
+// Находим поля попапа с картинкой
+const popupImgLink = document.querySelector('.popup__img');
+const popupImgTitle = document.querySelector('.popup__discripton');
+
+
 // Находим шаблон карточки Template и получаем его содержимое
 const cardTemplate = document.querySelector('#card-template').content;
 
 // Находим блок в котором будет использован Template
 const cardGrid = document.querySelector('.card-grid');
+
+// Обработчик открытия формы Edit через кнопку редактировать профиль и вставка значений из profileName и profileJob в поля формы nameInput и jobInfo
+function openPopupEdit() {
+  popupEdit.classList.add('popup_opened');
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+}
+
+//Обработчик открытия формы Add через кнопку добавить карточку
+function openPopupAdd() {
+  popupAdd.classList.add('popup_opened');
+}
+
+// Обработчик открытия картинки 
+function openPopupImg() {
+  popupImg.classList.add('.popup_opened');
+}
+
+// Обработчик закрытия формы Edit кнопки закрыть
+function closePopupEdit() {
+  popupEdit.classList.remove('popup_opened');
+}
+
+// Обработчик закрытия формы Add кнопки закрыть
+function closePopupAdd() {
+  popupAdd.classList.remove('popup_opened');
+}
+
+// Обработчик «отправки» формы Edit
+function editFormSubmit(evt) {
+  // Эта строчка отменяет стандартную отправку формы
+  evt.preventDefault();
+
+  // Получаем значение полей jobInput и nameInput из свойства value
+  const nameValue = nameInput.value
+  const jobValue = jobInput.value
+
+  // Вставляем новые значения с помощью textContent
+  profileName.textContent = nameValue
+  profileJob.textContent = jobValue
+
+  // Закрываем форму
+  closePopupEdit();
+}
+
+// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
+formEditElement.addEventListener('submit', editFormSubmit);
 
 // Массив данных для карточек
 const initialCards = [{
@@ -63,76 +117,27 @@ const initialCards = [{
 }
 ];
 
-// Обработчик открытия формы Edit через кнопку редактировать профиль и вставка значений из profileName и profileJob в поля формы nameInput и jobInfo
-function openPopupEdit() {
-  popupEdit.classList.add('popup_opened');
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-}
-
-//Обработчик открытия формы Add через кнопку добавить карточку
-function openPopupAdd() {
-  popupAdd.classList.add('popup_opened');
-}
-
-// Обработчик закрытия формы Edit кнопки закрыть
-function closePopupEdit() {
-  popupEdit.classList.remove('popup_opened');
-}
-
-// Обработчик закрытия формы Add кнопки закрыть
-function closePopupAdd() {
-  popupAdd.classList.remove('popup_opened');
-}
-
-// Обработчик «отправки» формы Edit
-function formSubmitHandler(evt) {
-  // Эта строчка отменяет стандартную отправку формы
-  evt.preventDefault();
-
-  // Получаем значение полей jobInput и nameInput из свойства value
-  const nameValue = nameInput.value
-  const jobValue = jobInput.value
-
-  // Вставляем новые значения с помощью textContent
-  profileName.textContent = nameValue
-  profileJob.textContent = jobValue
-
-  // Закрываем форму
-  closePopupEdit();
-}
-
-// Обработчик «отправки» формы Add
-function formSubmitHandler(evt) {
-  // Эта строчка отменяет стандартную отправку формы
-  evt.preventDefault();
-
-  const inputInfo = {
-    name: titleInput.value,
-    link: linkInput.value
-  };
-
-  renderCard(inputInfo);
-
-  closePopupAdd();
-}
-
-
-// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-formEditElement.addEventListener('submit', formSubmitHandler);
-formAddElement.addEventListener('submit', formSubmitHandler);
-
 // Используем массив для заполнения карточек созданных методом Template
 initialCards.forEach(function (cardInfo) {
 
   // Клонируем содержимое тега template
-  const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+  const gridElement = cardTemplate.querySelector('.card').cloneNode(true);
 
   // Наполняем блоки шаблона Template содержимым массива
-  cardElement.querySelector('.card__img').src = cardInfo.link;
-  cardElement.querySelector('.card__title').textContent = cardInfo.name;
-  cardElement.querySelector('.card__img').alt = cardInfo.name;
+  gridElement.querySelector('.card__img').src = cardInfo.link;
+  gridElement.querySelector('.card__title').textContent = cardInfo.name;
+  gridElement.querySelector('.card__img').alt = cardInfo.name;
+
+  // Активация кнопки Like
+  gridElement.querySelector('.card__like-button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like-button_active');
+  });
+
+  // Удаление карточки
+  gridElement.querySelector('.card__delete-button').addEventListener('click', function (evt) {
+    evt.target.closest('.card').remove();
+  });
 
   // Отображаем карточки на странице
-  cardGrid.append(cardElement);
+  cardGrid.append(gridElement);
 });
