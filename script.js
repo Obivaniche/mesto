@@ -97,11 +97,15 @@ function addImgSubmit(evt) {
   // Находим Template
   const gridElement = cardTemplate.querySelector('.card').cloneNode(true);
   
-  /*
-  // Получаем значение полей linkInput и titleInput из свойства value
-  const linkValue = linkInput.value
-  const titleValue = titleInput.value
-  */
+  // Активация кнопки Like
+  gridElement.querySelector('.card__like-button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like-button_active');
+  });
+
+  // Удаление карточки
+  gridElement.querySelector('.card__delete-button').addEventListener('click', function (evt) {
+    evt.target.closest('.card').remove();
+  });
 
   // Вставляем новые значения с помощью textContent
   gridElement.querySelector('.card__img').src = linkInput.value;  
