@@ -10,11 +10,11 @@ const closeImgButton = document.querySelector('.close-img');
 // Находим окно попапов в DOM
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
-const popupImg = document.querySelector('.poppup-img');
+const popupImg = document.querySelector('.popup-img');
 
 // Прикрепляем обработчики к кнопкам открыть закрыть
 editButton.addEventListener('click', openPopupEdit);
-addButton.addEventListener('click', openPopupAdd)
+addButton.addEventListener('click', openPopupAdd);
 closeEditButton.addEventListener('click', closePopupEdit);
 closeAddButton.addEventListener('click', closePopupAdd);
 
@@ -28,14 +28,13 @@ const jobInput = formEditElement.querySelector('.form__input_type_job');
 const titleInput = formAddElement.querySelector('.form__input_type_title');
 const linkInput = formAddElement.querySelector('.form__input_type_link');
 
-// Выбираем элементы, куда должны быть вставлены значения полей
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-
 // Находим поля попапа с картинкой
 const popupImgLink = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__discripton');
 
+// Выбираем элементы, куда должны быть вставлены значения полей
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
 
 // Находим шаблон карточки Template и получаем его содержимое
 const cardTemplate = document.querySelector('#card-template').content;
@@ -55,9 +54,15 @@ function openPopupAdd() {
   popupAdd.classList.add('popup_opened');
 }
 
-// Обработчик открытия картинки 
+// Обработчик открытия попапа с картинкой
 function openPopupImg() {
-  popupImg.classList.add('.popup_opened');
+  popupImg.classList.add('popup_opened');
+}
+
+// Обработчик открытия попапа с картинкой
+function closePopupImg() {
+  popupImg.classList.remove('popup_opened');
+  console.log('Закрылся попап');
 }
 
 // Обработчик закрытия формы Edit кнопки закрыть
@@ -76,12 +81,12 @@ function editFormSubmit(evt) {
   evt.preventDefault();
 
   // Получаем значение полей jobInput и nameInput из свойства value
-  const nameValue = nameInput.value
-  const jobValue = jobInput.value
+  const nameValue = nameInput.value;
+  const jobValue = jobInput.value;
 
   // Вставляем новые значения с помощью textContent
-  profileName.textContent = nameValue
-  profileJob.textContent = jobValue
+  profileName.textContent = nameValue;
+  profileJob.textContent = jobValue;
 
   // Закрываем форму
   closePopupEdit();
@@ -90,7 +95,7 @@ function editFormSubmit(evt) {
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 formEditElement.addEventListener('submit', editFormSubmit);
 
-function addImgSubmit(evt) {
+ function addImgSubmit(evt) {
   // Эта строчка отменяет стандартную отправку формы
   evt.preventDefault();
 
@@ -115,6 +120,10 @@ function addImgSubmit(evt) {
   // Отображаем карточку на странице
   cardGrid.prepend(gridElement);
 
+  // Очищаем поля ввода после отправки
+  linkInput.value = '';
+  titleInput.value = '';
+
   // Закрываем форму
   closePopupAdd();  
 }
@@ -126,10 +135,10 @@ formAddElement.addEventListener('submit', addImgSubmit);
 function openImgFullscreen(evt) {
 
   // Проверяем что кликаем по картинке
-  if (evt.target.classList.contains('.card__img')) {
+  if (evt.target.classList.contains('card__img')) {
 
     // Находим изображение картинки поапа и заменяем на выбранную картинку
-    popupImgLink = evt.target.src;
+    popupImgLink.src = evt.target.src;
     
     // Находим описание картинки попапа и присваиваем ему описание выбраноой картинки
     popupImgTitle.textContent = evt.target.closest('.card').querySelector('.card__title').textContent;
@@ -140,7 +149,10 @@ function openImgFullscreen(evt) {
   }
 
 // Прикрепляем обработчик к карточкам
-cardGrid.addEventListener('.click', openImgFullscreen);
+cardGrid.addEventListener('click', openImgFullscreen);
+
+// Прикрепляем обработчик закрытия картинки к кнопке закрыть
+closeImgButton.addEventListener('click', closePopupImg);
 
 // Массив данных для карточек
 const initialCards = [{

@@ -10,6 +10,19 @@
     grid-template-columns: 1fr 189px 1fr;
 }
 
+@media screen and (min-width: 640px) {
+
+    .profile {
+        max-width: 581px;
+        padding: 42px 0 0 0;
+        grid-template-areas:
+        "avatar name edit add"
+        "avatar job job add";
+        grid-template-columns: 120px 225px 1fr 150px;
+        grid-template-rows: 70px 1fr;
+    }
+}
+
 @media screen and (min-width: 1280px) {
 
     .profile {
