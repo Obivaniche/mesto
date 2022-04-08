@@ -122,6 +122,26 @@ function addImgSubmit(evt) {
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 formAddElement.addEventListener('submit', addImgSubmit);
 
+// Открывает картинку fullscreen
+function openImgFullscreen(evt) {
+
+  // Проверяем что кликаем по картинке
+  if (evt.target.classList.contains('.card__img')) {
+
+    // Находим изображение картинки поапа и заменяем на выбранную картинку
+    popupImgLink = evt.target.src;
+    
+    // Находим описание картинки попапа и присваиваем ему описание выбраноой картинки
+    popupImgTitle.textContent = evt.target.closest('.card').querySelector('.card__title').textContent;
+
+    // Открываем попап
+    openPopupImg();
+    };
+  }
+
+// Прикрепляем обработчик к карточкам
+cardGrid.addEventListener('.click', openImgFullscreen);
+
 // Массив данных для карточек
 const initialCards = [{
   name: 'Мурманская область',
