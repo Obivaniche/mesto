@@ -17,10 +17,10 @@ const formEditElement = document.querySelector('.form-edit');
 const formAddElement = document.querySelector('.form-add');
 
 // Находим поля формы в DOM
-const nameInput = formEditElement.querySelector('.form__input_type_name');
-const jobInput = formEditElement.querySelector('.form__input_type_job');
-const titleInput = formAddElement.querySelector('.form__input_type_title');
-const linkInput = formAddElement.querySelector('.form__input_type_link');
+const nameInput = document.getElementById('name-input');
+const jobInput = document.getElementById('job-input');
+const titleInput = document.getElementById('title-input');
+const linkInput = document.getElementById('link-input');
 
 // Выбираем элементы попапов, куда должны быть вставлены другие значения 
 const profileName = document.querySelector('.profile__name');
@@ -66,14 +66,11 @@ closeImgButton.addEventListener('click', function closePopupImg() {
 // Обработчик «отправки» формы Edit
 function editFormSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-  const nameValue = nameInput.value; // Получаем значение полей jobInput и nameInput из свойства value
-  const jobValue = jobInput.value;
-  profileName.textContent = nameValue; // Вставляем новые значения с помощью textContent
-  profileJob.textContent = jobValue;
+  profileName.textContent = nameInput.value; // Вставляем новые введеные значения с помощью textContent 
+  profileJob.textContent = jobInput.value;
   closePopup(popupEdit); // Закрываем форму
 }
-// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-formEditElement.addEventListener('submit', editFormSubmit);
+formEditElement.addEventListener('submit', editFormSubmit); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 
 // Массив данных для карточек
 const initialCards = [
@@ -128,23 +125,19 @@ function addCard (cardLink, cardTitle) {
   });
   return gridElement; // возвращаем карточку
 }
-
 // Вставляем значения массива в поля карточек
 function renderAddCard(initialCards) {
   initialCards.forEach(function (cardInfo) {
     cardGrid.append(addCard(cardInfo.link, cardInfo.name));
   });
 }
-// Применяем изменения
-renderAddCard(initialCards);
+renderAddCard(initialCards); // Применяем изменения
 
 // Добавляем карточку
 function addImgSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-  cardGrid.prepend(addCard(linkInput.value, titleInput.value));
+  cardGrid.prepend(addCard(linkInput.value, titleInput.value)); // Вставляем новые введеные значения в карточку через функцию создания карточек
   closePopup(popupAdd); // Закрываем форму
-  linkInput.value = ''; // Очищаем поля формы
-  titleInput.value = '';
+  formAddElement.reset(); // Сбрасываем форму
 }
-// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-formAddElement.addEventListener('submit', addImgSubmit);
+formAddElement.addEventListener('submit', addImgSubmit); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»

@@ -6,6 +6,7 @@
     background-color: #000000;
     color: #FFFFFF;
     font-size: 14px;
+    transition: opacity 0s, .2s ease-in;
 }
 
 .form__save-button:hover {
