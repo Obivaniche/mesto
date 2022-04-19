@@ -37,12 +37,31 @@ const cardGrid = document.querySelector('.card-grid');
 // Открываем все попапы
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-}
+  document.addEventListener('keydown', closePopupEsc);
+  popup.addEventListener('click', closePopupOver);
+};
 
 // Закрываем все попапы
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-}
+  document.removeEventListener('keydown', closePopupEsc);
+  popup.removeEventListener('click', closePopupOver);
+};
+
+// Закрываем попап через Esc
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupActive = document.querySelector('.popup_opened');
+    closePopup(popupActive);
+  };
+};
+
+// Закрываем попап через Overlay
+function closePopupOver(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  };
+};
 
 // Прикрепляем обработчики к кнопкам
 editButton.addEventListener('click', function openPopupEdit() {
@@ -55,6 +74,7 @@ closeEditButton.addEventListener('click', function closePopupEdit() {
 });
 addButton.addEventListener('click', function openPopupAdd() {
   openPopup(popupAdd);
+  submitButtonInactive()
 });
 closeAddButton.addEventListener('click', function closePopupAdd() {
   closePopup(popupAdd);
@@ -141,3 +161,10 @@ function addImgSubmit(evt) {
   formAddElement.reset(); // Сбрасываем форму
 }
 formAddElement.addEventListener('submit', addImgSubmit); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
+// Делаем кнопку добавления новой карточки неактивной изначально
+function submitButtonInactive() {
+  linkInput.value = '';
+  titleInput.value = '';  
+  saveAddButton.classList.add('form__save-button_disabled');
+  saveAddButton.disabled = true;    
+};
