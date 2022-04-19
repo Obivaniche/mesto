@@ -34,6 +34,63 @@ const cardTemplate = document.querySelector('#card-template').content;
 // Находим блок в котором будет использован Template
 const cardGrid = document.querySelector('.card-grid');
 
+// Массив данных для карточек
+const initialCards = [
+  {
+    name: 'Мурманская область',
+    link: 'images/image-1.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'images/image-2.jpg'
+  },
+  {
+    name: 'Сахалин',
+    link: 'images/image-3.jpg'
+  },
+  {
+    name: 'Куршская коса',
+    link: 'images/image-4.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'images/image-5.jpg'
+  },
+  {
+    name: 'Рускеала',
+    link: 'images/image-6.jpg'
+  }];
+
+// Прикрепляем обработчики к кнопкам
+editButton.addEventListener('click', function openPopupEdit() {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  openPopup(popupEdit);
+});
+closeEditButton.addEventListener('click', function closePopupEdit() {
+  closePopup(popupEdit);
+});
+addButton.addEventListener('click', function openPopupAdd() {
+  openPopup(popupAdd);
+  submitButtonInactive()
+});
+closeAddButton.addEventListener('click', function closePopupAdd() {
+  closePopup(popupAdd);
+});
+closeImgButton.addEventListener('click', function closePopupImg() {
+  closePopup(popupImg);
+});
+formEditElement.addEventListener('submit', editFormSubmit);
+formAddElement.addEventListener('submit', addImgSubmit);
+
+// Обработчик «отправки» формы Edit
+function editFormSubmit(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
+  profileName.textContent = nameInput.value; // Вставляем новые введеные значения с помощью textContent 
+  profileJob.textContent = jobInput.value;
+  closePopup(popupEdit); // Закрываем форму
+};
+
 // Открываем все попапы
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -63,62 +120,6 @@ function closePopupOver(evt) {
   };
 };
 
-// Прикрепляем обработчики к кнопкам
-editButton.addEventListener('click', function openPopupEdit() {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  openPopup(popupEdit);
-});
-closeEditButton.addEventListener('click', function closePopupEdit() {
-  closePopup(popupEdit);
-});
-addButton.addEventListener('click', function openPopupAdd() {
-  openPopup(popupAdd);
-  submitButtonInactive()
-});
-closeAddButton.addEventListener('click', function closePopupAdd() {
-  closePopup(popupAdd);
-});
-closeImgButton.addEventListener('click', function closePopupImg() {
-  closePopup(popupImg);
-});
-
-// Обработчик «отправки» формы Edit
-function editFormSubmit(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-  profileName.textContent = nameInput.value; // Вставляем новые введеные значения с помощью textContent 
-  profileJob.textContent = jobInput.value;
-  closePopup(popupEdit); // Закрываем форму
-}
-formEditElement.addEventListener('submit', editFormSubmit); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-
-// Массив данных для карточек
-const initialCards = [
-{
-  name: 'Мурманская область',
-  link: 'images/image-1.jpg'
-},
-{
-  name: 'Камчатка',
-  link: 'images/image-2.jpg'
-},
-{
-  name: 'Сахалин',
-  link: 'images/image-3.jpg'
-},
-{
-  name: 'Куршская коса',
-  link: 'images/image-4.jpg'
-},
-{
-  name: 'Байкал',
-  link: 'images/image-5.jpg'
-},
-{
-  name: 'Рускеала',
-  link: 'images/image-6.jpg'
-}];
-
 // Создаем карточки
 function addCard (cardLink, cardTitle) {
   const gridElement = cardTemplate.querySelector('.card').cloneNode(true);// Клонируем шаблоны
@@ -144,13 +145,13 @@ function addCard (cardLink, cardTitle) {
     evt.target.closest('.card').remove();
   });
   return gridElement; // возвращаем карточку
-}
+};
 // Вставляем значения массива в поля карточек
 function renderAddCard(initialCards) {
   initialCards.forEach(function (cardInfo) {
     cardGrid.append(addCard(cardInfo.link, cardInfo.name));
   });
-}
+};
 renderAddCard(initialCards); // Применяем изменения
 
 // Добавляем карточку
@@ -159,8 +160,8 @@ function addImgSubmit(evt) {
   cardGrid.prepend(addCard(linkInput.value, titleInput.value)); // Вставляем новые введеные значения в карточку через функцию создания карточек
   closePopup(popupAdd); // Закрываем форму
   formAddElement.reset(); // Сбрасываем форму
-}
-formAddElement.addEventListener('submit', addImgSubmit); // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
+};
+
 // Делаем кнопку добавления новой карточки неактивной изначально
 function submitButtonInactive() {
   linkInput.value = '';
