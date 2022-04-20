@@ -1,0 +1,26 @@
+.form__field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto 30px auto;
+}
+
+.form__field:last-of-type {
+    margin-bottom: 45px;
+}
+
+.form__field:first-of-type {
+    margin-top: 75px;
+}
+
+@media screen and (min-width: 1280px) {
+
+    .form__field:last-of-type {
+        margin-bottom: 48px;
+    }
+
+    .form__field:first-of-type {
+        margin-top: 54px;
+    }
+
+}

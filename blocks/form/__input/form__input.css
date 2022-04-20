@@ -1,22 +1,16 @@
 .form__input {
-    margin: 30px auto 0 auto;
+    padding: 0 0 13px 0;
     width: 238px;
     font-size: 14px;
-    border: none;
-    padding: 0 0 13px 0;
-    border-bottom: 1px solid rgb(0, 0, 0, .2);
     outline: none;
-}
-
-.form__input:first-of-type {
-    margin: 75px auto 0 auto;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0, .2);
 }
 
 @media screen and (min-width: 1280px) {
 
     .form__input {
         width: 358px;
-        margin: 54px auto 0 auto;
     }
 
 }
