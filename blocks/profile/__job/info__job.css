@@ -5,7 +5,8 @@
     margin: 14px auto 0 auto;
     font-size: 14px;
     color: #FFFF;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }

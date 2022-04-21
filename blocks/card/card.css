@@ -1,6 +1,7 @@
 .card {
+    display: -ms-grid;
     display: grid;
-    grid-template-areas: "img img"
+        grid-template-areas: "img img"
                          "title like";
     width: 282px;
     margin: auto;

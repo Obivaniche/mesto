@@ -6,7 +6,8 @@
     font-size: 24px;
     font-weight: 900;
     margin: 25px auto 0 21px;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
