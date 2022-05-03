@@ -8,4 +8,5 @@
     background-color: #FFFF;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }

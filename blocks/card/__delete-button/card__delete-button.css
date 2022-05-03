@@ -1,10 +1,12 @@
 .card__delete-button {
     grid-area: img;
-    margin: 20px 20px auto auto;
     width: 18px;
     height: 19.3px;
     background-image: url(../../../images/del_btn.svg);
-    }
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
     
 .card__delete-button:hover {
     opacity: .6;
