@@ -1,3 +1,9 @@
+// Импортируем карточки
+import Card from './card.js';
+
+// Экспортрруем элементы для создания карточек
+export {popupImgTitle, popupImgLink, popupImg, openPopup}; 
+
 //  Находим кнопки в DOM
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -85,10 +91,13 @@ formAddElement.addEventListener('submit', addImgSubmit);
 
 // Обработчик «отправки» формы Edit
 function editFormSubmit(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-  profileName.textContent = nameInput.value; // Вставляем новые введеные значения с помощью textContent 
+  // Эта строчка отменяет стандартную отправку формы
+  evt.preventDefault();
+  // Вставляем новые введеные значения с помощью textContent 
+  profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup(popupEdit); // Закрываем форму
+  // Закрываем форму
+  closePopup(popupEdit);
 };
 
 // Открываем все попапы
@@ -120,31 +129,41 @@ function closePopupOver(evt) {
   };
 };
 
+/*
 // Создаем карточки
 function addCard (cardLink, cardTitle) {
-  const gridElement = cardTemplate.querySelector('.card').cloneNode(true);// Клонируем шаблоны
-  const elementImg = gridElement.querySelector('.card__img'); // Находим изображение карточки
-  gridElement.querySelector('.card__title').textContent = cardTitle; // Находим значение подписи картинки
-  elementImg.src = cardLink; // Находим остальные атрибуты картинки
+  // Клонируем шаблоны
+  const gridElement = cardTemplate.querySelector('.card').cloneNode(true);
+  // Находим изображение карточки
+  const elementImg = gridElement.querySelector('.card__img');
+  // Находим значение подписи картинки
+  gridElement.querySelector('.card__title').textContent = cardTitle;
+  // Находим остальные атрибуты картинки
+  elementImg.src = cardLink;
   elementImg.alt = cardTitle;
   // Обработчик события клика по картинке
   elementImg.addEventListener('click', function() {
-    popupImgTitle.textContent = cardTitle; // Подставляем значения полей
+    // Подставляем значения полей
+    popupImgTitle.textContent = cardTitle;
     popupImgLink.src = cardLink;
     popupImgLink.alt = cardTitle;
-    openPopup(popupImg); // Открываем картинку
+    // Открываем картинку
+    openPopup(popupImg); 
   });
-  const likeButton = gridElement.querySelector('.card__like-button'); // Находим кнопку Like в карточке
+  // Находим кнопку Like в карточке
+  const likeButton = gridElement.querySelector('.card__like-button');
   // Прикрепляем обработчик к нопке
   likeButton.addEventListener("click", function likeButtonActive (evt) {
     evt.target.classList.toggle('card__like-button_active');
-  }); 
-  const deleteButton = gridElement.querySelector('.card__delete-button'); // Находим кнопку Delete
+  });
+  // Находим кнопку Delete
+  const deleteButton = gridElement.querySelector('.card__delete-button');
   // Прикрепляем обработчик к кнопке
   deleteButton.addEventListener("click", function deleteCard (evt) {
     evt.target.closest('.card').remove();
   });
-  return gridElement; // возвращаем карточку
+  // Возвращаем готовую карточку
+  return gridElement;
 };
 // Вставляем значения массива в поля карточек
 function renderAddCard(initialCards) {
@@ -152,20 +171,37 @@ function renderAddCard(initialCards) {
     cardGrid.append(addCard(cardInfo.link, cardInfo.name));
   });
 };
-renderAddCard(initialCards); // Применяем изменения
+// Применяем изменения
+renderAddCard(initialCards);
+*/
+
+// Создаем карточки из массива
+initialCards.forEach((item) => {
+  const card = new Card(item, '#card-template');
+  const cardElement = card.generateCard();
+
+  // Добавляем картоки в DOM
+  cardGrid.append(cardElement);
+});
 
 // Добавляем карточку
 function addImgSubmit(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-  cardGrid.prepend(addCard(linkInput.value, titleInput.value)); // Вставляем новые введеные значения в карточку через функцию создания карточек
-  closePopup(popupAdd); // Закрываем форму
-  formAddElement.reset(); // Сбрасываем форму
+  // Эта строчка отменяет стандартную отправку формы
+  evt.preventDefault();
+  // Вставляем новые введеные значения в карточку через функцию создания карточек
+  cardGrid.prepend(addCard(linkInput.value, titleInput.value));
+  // Закрываем форму
+  closePopup(popupAdd);
+  // Сбрасываем форму
+  formAddElement.reset();
 };
 
 // Делаем кнопку добавления новой карточки неактивной изначально
 function submitButtonInactive() {
+  // Очищаем поля
   linkInput.value = '';
-  titleInput.value = '';  
+  titleInput.value = '';
+  // Отключаем кнопку
   saveAddButton.classList.add('form__save-button_disabled');
   saveAddButton.disabled = true;    
 };

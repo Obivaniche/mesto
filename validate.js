@@ -47,7 +47,6 @@ const enableValidation = ({formSelector, ...rest}) => {
         setEventListeners(formElement, rest);
     });
 };
-enableValidation(validationObj); // Включаем валидацию обьектов
 
 // Првоеряем валидицию при вводе информации
 function hasInvalidInput(inputList) {
