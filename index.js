@@ -2,7 +2,7 @@
 import Card from './card.js';
 
 // Экспортрруем элементы для создания карточек
-export {popupImgTitle, popupImgLink, popupImg, openPopup}; 
+export { popupImgTitle, popupImgLink, popupImg, openPopup };
 
 //  Находим кнопки в DOM
 const editButton = document.querySelector('.profile__edit-button');
@@ -33,9 +33,6 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const popupImgLink = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__discripton');
-
-// Находим шаблон карточки Template и получаем его содержимое
-const cardTemplate = document.querySelector('#card-template').content;
 
 // Находим блок в котором будет использован Template
 const cardGrid = document.querySelector('.card-grid');
@@ -129,59 +126,17 @@ function closePopupOver(evt) {
   };
 };
 
-/*
-// Создаем карточки
-function addCard (cardLink, cardTitle) {
-  // Клонируем шаблоны
-  const gridElement = cardTemplate.querySelector('.card').cloneNode(true);
-  // Находим изображение карточки
-  const elementImg = gridElement.querySelector('.card__img');
-  // Находим значение подписи картинки
-  gridElement.querySelector('.card__title').textContent = cardTitle;
-  // Находим остальные атрибуты картинки
-  elementImg.src = cardLink;
-  elementImg.alt = cardTitle;
-  // Обработчик события клика по картинке
-  elementImg.addEventListener('click', function() {
-    // Подставляем значения полей
-    popupImgTitle.textContent = cardTitle;
-    popupImgLink.src = cardLink;
-    popupImgLink.alt = cardTitle;
-    // Открываем картинку
-    openPopup(popupImg); 
-  });
-  // Находим кнопку Like в карточке
-  const likeButton = gridElement.querySelector('.card__like-button');
-  // Прикрепляем обработчик к нопке
-  likeButton.addEventListener("click", function likeButtonActive (evt) {
-    evt.target.classList.toggle('card__like-button_active');
-  });
-  // Находим кнопку Delete
-  const deleteButton = gridElement.querySelector('.card__delete-button');
-  // Прикрепляем обработчик к кнопке
-  deleteButton.addEventListener("click", function deleteCard (evt) {
-    evt.target.closest('.card').remove();
-  });
-  // Возвращаем готовую карточку
-  return gridElement;
-};
-// Вставляем значения массива в поля карточек
-function renderAddCard(initialCards) {
-  initialCards.forEach(function (cardInfo) {
-    cardGrid.append(addCard(cardInfo.link, cardInfo.name));
-  });
-};
-// Применяем изменения
-renderAddCard(initialCards);
-*/
-
 // Создаем карточки из массива
-initialCards.forEach((item) => {
-  const card = new Card(item, '#card-template');
+function renderCard(data) {
+  const card = new Card(data, '#card-template');
   const cardElement = card.generateCard();
 
   // Добавляем картоки в DOM
-  cardGrid.append(cardElement);
+  cardGrid.prepend(cardElement);
+};
+
+initialCards.forEach((card) => {
+  renderCard(card);
 });
 
 // Добавляем карточку
@@ -189,7 +144,11 @@ function addImgSubmit(evt) {
   // Эта строчка отменяет стандартную отправку формы
   evt.preventDefault();
   // Вставляем новые введеные значения в карточку через функцию создания карточек
-  cardGrid.prepend(addCard(linkInput.value, titleInput.value));
+  const data = {
+    name: titleInput.value,
+    link: linkInput.value,
+  };
+  renderCard(data);
   // Закрываем форму
   closePopup(popupAdd);
   // Сбрасываем форму
@@ -203,5 +162,5 @@ function submitButtonInactive() {
   titleInput.value = '';
   // Отключаем кнопку
   saveAddButton.classList.add('form__save-button_disabled');
-  saveAddButton.disabled = true;    
+  saveAddButton.disabled = true;
 };
