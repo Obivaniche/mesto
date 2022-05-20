@@ -14,7 +14,8 @@
 @media screen and (min-width: 640px) {
 
     .profile__job {
-        margin: 6px 0 0 25px;
+        width: 189px;;
+        margin: 6px auto 0 25px;
         text-align: left;
     }
 }
@@ -22,6 +23,7 @@
 @media screen and (min-width: 1280px) {
 
     .profile__job {
+        width: 282px;
         margin: 6px 0 0 0px;
         font-size: 18px;
         text-align: left;
