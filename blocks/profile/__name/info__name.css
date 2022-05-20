@@ -16,8 +16,8 @@
 @media screen and (min-width: 640px) {
 
     .profile__name {
-        width: 294px;
-        margin: 39px 0 0 25px;
+        width: 189px;
+        margin: 39px auto 0 25px;
         font-size: 27px;
         text-align: left;
     }
