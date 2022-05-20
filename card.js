@@ -27,13 +27,10 @@ export default class Card {
         // Картинка и ее данные
         this._cardImg = this._element.querySelector('.card__img');
         this._cardImg.src = this._link;
-        console.log('Получили ссылку ' + this._cardImg.src);
         this._cardImg.alt = this._title;
-        console.log('Получили альт ' + this._cardImg.alt);
         // Заголовок карточки и его данные
         this._cardTitle = this._element.querySelector('.card__title');
         this._cardTitle.textContent = this._title;
-        console.log('Получили заголовок ' + this._cardTitle.textContent);
         // Кнопки карточки
         this._likeButton = this._element.querySelector('.card__like-button');
         this._deleteButton = this._element.querySelector('.card__delete-button');
