@@ -8,7 +8,6 @@ export { popupImgTitle, popupImgLink, popupImg, openPopup };
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const closeEditButton = document.querySelector('.close-edit');
-const saveEditButton = document.querySelector('.save-edit');
 const closeAddButton = document.querySelector('.close-add');
 const saveAddButton = document.querySelector('.save-add');
 const closeImgButton = document.querySelector('.close-img');
@@ -135,6 +134,7 @@ function renderCard(data) {
   cardGrid.prepend(cardElement);
 };
 
+// Забираем данные из массива
 initialCards.forEach((card) => {
   renderCard(card);
 });
@@ -143,7 +143,7 @@ initialCards.forEach((card) => {
 function addImgSubmit(evt) {
   // Эта строчка отменяет стандартную отправку формы
   evt.preventDefault();
-  // Вставляем новые введеные значения в карточку через функцию создания карточек
+  // Вставляем новые введеные значения в карточку
   const data = {
     name: titleInput.value,
     link: linkInput.value,

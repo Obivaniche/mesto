@@ -21,6 +21,7 @@ export default class Card {
         return cardElement;
     };
 
+    // Создаем карточку
     generateCard() {
         // Запишем разметку в приватное поле _element
         this._element = this._getTemplate();
@@ -40,6 +41,7 @@ export default class Card {
         return this._element;
     };
 
+    // Вешаем слушатели на кнопки и картинку + открываем картинку
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => {
             this._likeClick();
@@ -57,10 +59,11 @@ export default class Card {
         });
     };
 
+    // Ставим лайк
     _likeClick() {
         this._likeButton.classList.toggle('card__like-button_active');
     };
-
+    // Удаляем карточку
     _deleteClick() {
         this._deleteButton.closest('.card').remove();
     };
