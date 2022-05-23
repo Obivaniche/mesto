@@ -1,6 +1,9 @@
 // Импортируем карточки
 import Card from './card.js';
 
+// Импортируем валидацию
+import FormValidator from './validate.js';
+
 // Экспортрруем элементы для создания карточек
 export { popupImgTitle, popupImgLink, popupImg, openPopup };
 
@@ -35,6 +38,16 @@ const popupImgTitle = document.querySelector('.popup__discripton');
 
 // Находим блок в котором будет использован Template
 const cardGrid = document.querySelector('.card-grid');
+
+// Массив объектов для валидации
+const config = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save-button',
+  inactiveButtonClass: 'form__save-button_disabled',
+  inputErrorClass: 'form__input-error',
+  errorClass: 'form__input-error_active'
+};
 
 // Массив данных для карточек
 const initialCards = [
@@ -164,3 +177,11 @@ function submitButtonInactive() {
   saveAddButton.classList.add('form__save-button_disabled');
   saveAddButton.disabled = true;
 };
+
+// Валидация формы профиля
+const formEditValidator = new FormValidator(config, popupEdit);
+formEditValidator.enableValidation();
+
+// Валидация формы добавления карточки
+const formAddValidator = new FormValidator(config, popupAdd);
+formAddValidator.enableValidation();

@@ -52,9 +52,9 @@ export default class Card {
         });
 
         this._cardImg.addEventListener("click", () => {
-            popupImgTitle.textContent = this._name;
+            popupImgTitle.textContent = this._title;
             popupImgLink.src = this._link;
-            popupImgLink.alt = this._name;
+            popupImgLink.alt = this._alt;
             openPopup(popupImg);
         });
     };
