@@ -52,9 +52,11 @@ export default class FormValidator {
     // Включаем или выключаем кнопку сохранить/создать при вводе информации 
     _toggleButtonState() {
         this._hasInvalidInput()
-            ? this._buttonElement.classList.add(this._config.inactiveButtonClass) // Выключаем кнопку если поля заполнены не верно
+        // Выключаем кнопку если поля заполнены не верно
+            ? this._buttonElement.classList.add(this._config.inactiveButtonClass) 
                 ? this._buttonElement.disabled = true
-                : this._buttonElement.classList.remove(this._config.inactiveButtonClass) // Включаем кнопку если поля заполнены верно
+                // Включаем кнопку если поля заполнены верно
+                : this._buttonElement.classList.remove(this._config.inactiveButtonClass) 
             : this._buttonElement.disabled = false;
     };
 

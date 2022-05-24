@@ -1,5 +1,5 @@
 // Импортируем необходимые элементы
-import { popupImgTitle, popupImgLink, popupImg, openPopup } from 'scripts/index.js';
+// import { popupImgTitle, popupImgLink, popupImg, openPopup } from '/scripts/utils.js';
 
 // Создаем класс карточки
 export default class Card {
@@ -65,6 +65,7 @@ export default class Card {
     };
     // Удаляем карточку
     _deleteClick() {
-        this._deleteButton.closest('.card').remove();
+        this._element.remove();
+        this._element = null;
     };
 };

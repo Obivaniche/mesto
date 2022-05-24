@@ -1,8 +1,11 @@
 // Импортируем карточки
-import Card from 'scripts/Сard.js';
+import Card from '/scripts/Сard.js';
 
 // Импортируем валидацию
-import FormValidator from 'scripts/FormValidator.js';
+import FormValidator from '/scripts/FormValidator.js';
+
+// Импортируем данные для карточек
+import { initialCards } from '/scripts/initialCards.js';
 
 // Экспортрруем элементы для создания карточек
 export { popupImgTitle, popupImgLink, popupImg, openPopup };
@@ -49,33 +52,6 @@ const config = {
   errorClass: 'form__input-error_active'
 };
 
-// Массив данных для карточек
-const initialCards = [
-  {
-    name: 'Мурманская область',
-    link: 'images/image-1.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'images/image-2.jpg'
-  },
-  {
-    name: 'Сахалин',
-    link: 'images/image-3.jpg'
-  },
-  {
-    name: 'Куршская коса',
-    link: 'images/image-4.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'images/image-5.jpg'
-  },
-  {
-    name: 'Рускеала',
-    link: 'images/image-6.jpg'
-  }];
-
 // Прикрепляем обработчики к кнопкам
 editButton.addEventListener('click', function openPopupEdit() {
   nameInput.value = profileName.textContent;
@@ -113,7 +89,7 @@ function editFormSubmit(evt) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  popup.addEventListener('click', closePopupOver);
+  popup.addEventListener('mousedown', closePopupOver);
 };
 
 // Закрываем все попапы
