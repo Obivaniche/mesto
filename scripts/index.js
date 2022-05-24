@@ -1,8 +1,8 @@
 // Импортируем карточки
-import Card from './card.js';
+import Card from 'scripts/Сard.js';
 
 // Импортируем валидацию
-import FormValidator from './validate.js';
+import FormValidator from 'scripts/FormValidator.js';
 
 // Экспортрруем элементы для создания карточек
 export { popupImgTitle, popupImgLink, popupImg, openPopup };

@@ -1,5 +1,5 @@
 // Импортируем необходимые элементы
-import { popupImgTitle, popupImgLink, popupImg, openPopup } from './index.js';
+import { popupImgTitle, popupImgLink, popupImg, openPopup } from 'scripts/index.js';
 
 // Создаем класс карточки
 export default class Card {
@@ -13,7 +13,7 @@ export default class Card {
     // Копируем разметку
     _getTemplate() {
         const cardElement = document
-            .querySelector('#card-template')
+            .querySelector(this._cardSelector)
             .content
             .querySelector('.card')
             .cloneNode(true);
