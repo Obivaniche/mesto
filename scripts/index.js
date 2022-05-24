@@ -10,6 +10,7 @@ import { initialCards } from '/scripts/initialCards.js';
 // Импортирем переменные
 import { popupImg, openPopup } from '/scripts/utils.js';
 
+// Экспорт функций для utils
 export {closePopupEsc, closePopupOver };
 
 //  Находим кнопки в DOM
@@ -60,9 +61,10 @@ editButton.addEventListener('click', function openPopupEdit() {
 closeEditButton.addEventListener('click', function closePopupEdit() {
   closePopup(popupEdit);
 });
+const buttonAddValidator = new FormValidator(config, popupAdd);
 addButton.addEventListener('click', function openPopupAdd() {
+  buttonAddValidator.disableSubmitButton();
   openPopup(popupAdd);
-  submitButtonInactive()
 });
 closeAddButton.addEventListener('click', function closePopupAdd() {
   closePopup(popupAdd);
@@ -134,16 +136,6 @@ function addImgSubmit(evt) {
   closePopup(popupAdd);
   // Сбрасываем форму
   formAddElement.reset();
-};
-
-// Делаем кнопку добавления новой карточки неактивной изначально
-function submitButtonInactive() {
-  // Очищаем поля
-  linkInput.value = '';
-  titleInput.value = '';
-  // Отключаем кнопку
-  saveAddButton.classList.add('form__save-button_disabled');
-  saveAddButton.disabled = true;
 };
 
 // Валидация формы профиля

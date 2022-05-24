@@ -49,15 +49,24 @@ export default class FormValidator {
         });
     };
 
+    // Отключение кнопки
+    disableSubmitButton() {
+        this._buttonElement.setAttribute('disabled', true);
+        this._buttonElement.classList.add(this._config.inactiveButtonClass);
+    }
+    // Включение кнопки
+    _enableSubmitButton() {
+        this._buttonElement.removeAttribute('disabled', false);
+        this._buttonElement.classList.remove(this._config.inactiveButtonClass);
+    }
+
     // Включаем или выключаем кнопку сохранить/создать при вводе информации 
     _toggleButtonState() {
-        this._hasInvalidInput()
-            // Выключаем кнопку если поля заполнены не верно
-            ? this._buttonElement.classList.add(this._config.inactiveButtonClass)
-                ? this._buttonElement.disabled = true
-                // Включаем кнопку если поля заполнены верно
-                : this._buttonElement.classList.remove(this._config.inactiveButtonClass)
-            : this._buttonElement.disabled = false;
+        if (this._hasInvalidInput()) {
+            this.disableSubmitButton();
+        } else {
+            this._enableSubmitButton();
+        }
     };
 
     // Прикрепляем обработчики к полям формы и кнопке отправить
@@ -69,7 +78,7 @@ export default class FormValidator {
                 // проверяем валидацию
                 this._checkInputValidity(inputElement);
                 // Включаем/выключаем кнопку сохранить/создать
-                this._toggleButtonState(inputElement);
+                this._toggleButtonState();
             });
         });
         // Отключаем стандартную отправку формы
