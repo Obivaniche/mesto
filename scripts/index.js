@@ -7,8 +7,10 @@ import FormValidator from '/scripts/FormValidator.js';
 // Импортируем данные для карточек
 import { initialCards } from '/scripts/initialCards.js';
 
-// Экспортрруем элементы для создания карточек
-export { popupImgTitle, popupImgLink, popupImg, openPopup };
+// Импортирем переменные
+import { popupImg, openPopup } from '/scripts/utils.js';
+
+export {closePopupEsc, closePopupOver };
 
 //  Находим кнопки в DOM
 const editButton = document.querySelector('.profile__edit-button');
@@ -21,7 +23,6 @@ const closeImgButton = document.querySelector('.close-img');
 // Находим окна попапов в DOM
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
-const popupImg = document.querySelector('.popup-img');
 
 // Находим формы в DOM
 const formEditElement = document.querySelector('.form-edit');
@@ -36,8 +37,6 @@ const linkInput = document.getElementById('link-input');
 // Выбираем элементы попапов, куда должны быть вставлены другие значения 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const popupImgLink = document.querySelector('.popup__img');
-const popupImgTitle = document.querySelector('.popup__discripton');
 
 // Находим блок в котором будет использован Template
 const cardGrid = document.querySelector('.card-grid');
@@ -83,13 +82,6 @@ function editFormSubmit(evt) {
   profileJob.textContent = jobInput.value;
   // Закрываем форму
   closePopup(popupEdit);
-};
-
-// Открываем все попапы
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
-  popup.addEventListener('mousedown', closePopupOver);
 };
 
 // Закрываем все попапы

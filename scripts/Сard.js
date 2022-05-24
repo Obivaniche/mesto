@@ -1,5 +1,6 @@
 // Импортируем необходимые элементы
-// import { popupImgTitle, popupImgLink, popupImg, openPopup } from '/scripts/utils.js';
+import { popupImgTitle, popupImgLink, popupImg } from '/scripts/utils.js';
+import { openPopup } from '/scripts/utils.js';
 
 // Создаем класс карточки
 export default class Card {
@@ -17,7 +18,7 @@ export default class Card {
             .content
             .querySelector('.card')
             .cloneNode(true);
-
+        // Возвращаем разметку
         return cardElement;
     };
 
@@ -46,11 +47,11 @@ export default class Card {
         this._likeButton.addEventListener('click', () => {
             this._likeClick();
         });
-
+        // Слушатель кнопки удалить
         this._deleteButton.addEventListener('click', () => {
             this._deleteClick();
         });
-
+        // Слушатель кнопки открыть картинку
         this._cardImg.addEventListener("click", () => {
             popupImgTitle.textContent = this._title;
             popupImgLink.src = this._link;

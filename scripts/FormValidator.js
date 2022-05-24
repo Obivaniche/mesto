@@ -52,11 +52,11 @@ export default class FormValidator {
     // Включаем или выключаем кнопку сохранить/создать при вводе информации 
     _toggleButtonState() {
         this._hasInvalidInput()
-        // Выключаем кнопку если поля заполнены не верно
-            ? this._buttonElement.classList.add(this._config.inactiveButtonClass) 
+            // Выключаем кнопку если поля заполнены не верно
+            ? this._buttonElement.classList.add(this._config.inactiveButtonClass)
                 ? this._buttonElement.disabled = true
                 // Включаем кнопку если поля заполнены верно
-                : this._buttonElement.classList.remove(this._config.inactiveButtonClass) 
+                : this._buttonElement.classList.remove(this._config.inactiveButtonClass)
             : this._buttonElement.disabled = false;
     };
 
@@ -69,7 +69,7 @@ export default class FormValidator {
                 // проверяем валидацию
                 this._checkInputValidity(inputElement);
                 // Включаем/выключаем кнопку сохранить/создать
-                this._toggleButtonState();
+                this._toggleButtonState(inputElement);
             });
         });
         // Отключаем стандартную отправку формы
