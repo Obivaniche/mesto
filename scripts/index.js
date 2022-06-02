@@ -11,7 +11,7 @@ import { initialCards } from '/scripts/initialCards.js';
 import { popupImg, openPopup } from '/scripts/utils.js';
 
 // Экспорт функций для utils
-export {closePopupEsc, closePopupOver };
+export { closePopupEsc, closePopupOver };
 
 //  Находим кнопки в DOM
 const editButton = document.querySelector('.profile__edit-button');
