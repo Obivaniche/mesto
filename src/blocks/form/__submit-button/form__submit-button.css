@@ -1,4 +1,4 @@
-.form__save-button {
+.form__submit-button {
     margin: 0 auto 25px auto;
     border-radius: 2px;
     width: 238px;
@@ -11,13 +11,13 @@
     transition: opacity 0s, .2s ease-in;
 }
 
-.form__save-button:hover {
+.form__submit-button:hover {
     opacity: .8;
 }
 
 @media screen and (min-width: 1280px) {
 
-    .form__save-button {
+    .form__submit-button {
         margin: 0 auto 37px auto;
         width: 358px;
         height: 50px;

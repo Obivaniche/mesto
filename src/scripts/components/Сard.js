@@ -1,14 +1,11 @@
-// Импортируем необходимые элементы
-import { popupImgTitle, popupImgLink, popupImg } from '/scripts/utils.js';
-import { openPopup } from '/scripts/utils.js';
-
 // Создаем класс карточки
 export default class Card {
-    constructor(data, cardSelector) {
-        this._title = data.name;
+    constructor({ data, handleCardClick }, cardSelector) {
+        this._data = data;
+        this._name = data.name;
         this._link = data.link;
-        this._alt = data.name;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     };
 
     // Копируем разметку
@@ -29,10 +26,10 @@ export default class Card {
         // Картинка и ее данные
         this._cardImg = this._element.querySelector('.card__img');
         this._cardImg.src = this._link;
-        this._cardImg.alt = this._title;
+        this._cardImg.alt = this._name;
         // Заголовок карточки и его данные
         this._cardTitle = this._element.querySelector('.card__title');
-        this._cardTitle.textContent = this._title;
+        this._cardTitle.textContent = this._name;
         // Кнопки карточки
         this._likeButton = this._element.querySelector('.card__like-button');
         this._deleteButton = this._element.querySelector('.card__delete-button');
@@ -45,27 +42,24 @@ export default class Card {
     // Вешаем слушатели на кнопки и картинку + открываем картинку
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => {
-            this._likeClick();
+            this._handleLikeClick();
         });
         // Слушатель кнопки удалить
         this._deleteButton.addEventListener('click', () => {
-            this._deleteClick();
+            this._handleDeleteClick();
         });
         // Слушатель кнопки открыть картинку
         this._cardImg.addEventListener("click", () => {
-            popupImgTitle.textContent = this._title;
-            popupImgLink.src = this._link;
-            popupImgLink.alt = this._alt;
-            openPopup(popupImg);
+            this._handleCardClick();
         });
     };
 
     // Ставим лайк
-    _likeClick() {
+    _handleLikeClick() {
         this._likeButton.classList.toggle('card__like-button_active');
     };
     // Удаляем карточку
-    _deleteClick() {
+    _handleDeleteClick() {
         this._element.remove();
         this._element = null;
     };
