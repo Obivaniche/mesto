@@ -45,8 +45,6 @@ const renderCard = (data) => {
   );
   // Отрисовываем карточку
   const cardElement = card.generateCard();
-  // Вставляем карточкув разметку 
-  cardGrid.append(cardElement);
   // Возвращаем отрисованную карточку
   return cardElement;
 };
@@ -54,7 +52,7 @@ const renderCard = (data) => {
 // Вставляем созданные карточки в дом
 const section = new Section({
   items: initialCards,
-  renderer: renderCard
+  renderer: (item) => {section.addItem(renderCard(item));}
 },
 '.card-grid');
 // Отрисовываем карточки

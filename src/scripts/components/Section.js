@@ -16,6 +16,6 @@ export default class Section {
     // Добалвяем карточки в дом
     addItem(element) {
         // заполняем карточки от начала к концу
-        this._container.prepend(element);
+        this._container.append(element);
     };
 };
