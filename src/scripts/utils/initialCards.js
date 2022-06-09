@@ -7,26 +7,28 @@ const ruskealaImage = new URL('../../images/image-6.jpg', import.meta.url);
 
 export const initialCards = [
   {
-    name: 'Мурманская область',
-    link: murmanskImage
-  },
-  {
-    name: 'Камчатка',
-    link: kamchatkaImage
-  },
-  {
-    name: 'Сахалин',
-    link: sakhalinImage
-  },
-  {
-    name: 'Куршская коса',
-    link: kurshskayaImage
+    name: 'Рускеала',
+    link: ruskealaImage
   },
   {
     name: 'Байкал',
     link: baikalImage
   },
   {
-    name: 'Рускеала',
-    link: ruskealaImage
+    name: 'Куршская коса',
+    link: kurshskayaImage
+  },
+  {
+    name: 'Сахалин',
+    link: sakhalinImage
+  },
+  {
+    name: 'Камчатка',
+    link: kamchatkaImage
+  },
+  {
+    name: 'Мурманская область',
+    link: murmanskImage
   }];
+
+  

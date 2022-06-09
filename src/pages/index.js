@@ -36,11 +36,11 @@ popupImg.setEventListeners();
 // Создаем карточки
 const renderCard = (data) => {
   const card = new Card({
-      data: data,
-      handleCardClick: () => {
-        popupImg.open(data);
-      },
+    data: data,
+    handleCardClick: () => {
+      popupImg.open(data);
     },
+  },
     '#card-template'
   );
   // Отрисовываем карточку
@@ -52,9 +52,9 @@ const renderCard = (data) => {
 // Вставляем созданные карточки в дом
 const section = new Section({
   items: initialCards,
-  renderer: (item) => {section.addItem(renderCard(item));}
+  renderer: (item) => { section.addItem(renderCard(item)); }
 },
-'.card-grid');
+  '.card-grid');
 // Отрисовываем карточки
 section.renderItems();
 
