@@ -5,17 +5,15 @@ export default class Section {
         this._renderer = renderer;
         this._container = document.querySelector(containerSelector);
     };
-    // Создаем карточки
-    renderItems() {
-        // Перебираем массив заполняя данные
-        this._items.forEach((item) => {
-            // Отрисовываем карточки
-            this._renderer(item);
+    // Заполняем карточки
+    renderItems(items) {
+        items.reverse().forEach(item => {
+            const element = this._renderer(item);
+            this.addItem(element);
         });
     };
-    // Добалвяем карточки в дом
+    // Добавляем карточки в дом
     addItem(element) {
-        // заполняем карточки от начала к концу
         this._container.prepend(element);
     };
 };

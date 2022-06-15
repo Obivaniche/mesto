@@ -7,7 +7,7 @@ export default class FormValidator {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
         // Находим кнопку сохранить
         this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
-    }
+    };
 
     // Показываем ошибки
     _showInputError(inputElement, errorMessage) {
@@ -53,12 +53,12 @@ export default class FormValidator {
     disableSubmitButton() {
         this._buttonElement.setAttribute('disabled', true);
         this._buttonElement.classList.add(this._config.inactiveButtonClass);
-    }
+    };
     // Включение кнопки
     _enableSubmitButton() {
         this._buttonElement.removeAttribute('disabled', false);
         this._buttonElement.classList.remove(this._config.inactiveButtonClass);
-    }
+    };
 
     // Включаем или выключаем кнопку сохранить/создать при вводе информации 
     _toggleButtonState() {

@@ -1,7 +1,10 @@
 export const formEditElement = document.querySelector('.form-edit');
 export const formAddElement = document.querySelector('.form-add');
+export const formAvatarElement = document.querySelector('.form-avatar');
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
+export const avatarButton = document.querySelector('.profile__avatar-button');
 export const cardGrid = document.querySelector('.card-grid');
 export const nameInput = document.getElementById('name-input');
-export const jobInput = document.getElementById('job-input');
+export const aboutInput = document.getElementById('about-input');
+export const avatar = document.querySelector('.profile__avatar');
