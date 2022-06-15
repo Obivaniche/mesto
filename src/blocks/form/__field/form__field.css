@@ -7,7 +7,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin: auto auto 30px auto;
+    margin: auto auto 29.74px auto;
 }
 
 .form__field:last-of-type {
@@ -21,11 +21,11 @@
 @media screen and (min-width: 1280px) {
 
     .form__field:last-of-type {
-        margin-bottom: 48px;
+        margin-bottom: 10px;
     }
 
     .form__field:first-of-type {
-        margin-top: 54px;
+        margin-top: 50px;
     }
 
 }
