@@ -1,18 +1,13 @@
-// Создаем класс Section
 export default class Section {
-    constructor({ items, renderer }, containerSelector) {
-        this._items = items;
+    constructor({ renderer }, container) {
         this._renderer = renderer;
-        this._container = document.querySelector(containerSelector);
+        this._container = document.querySelector(container);
     };
-    // Заполняем карточки
     renderItems(items) {
-        items.reverse().forEach(item => {
-            const element = this._renderer(item);
-            this.addItem(element);
+        items.reverse().forEach((item) => {
+            this._renderer(item);
         });
     };
-    // Добавляем карточки в дом
     addItem(element) {
         this._container.prepend(element);
     };

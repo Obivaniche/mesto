@@ -30,11 +30,11 @@ export default class Card {
     };
     // Ставим лайк
     _enableLike() {
-        this._element.querySelector('.card__like-button').classList.add('card__like-button_active');
+        this._likeButton.classList.add('card__like-button_active');
     };
     //  Удаляем лайк
     _disableLike() {
-        this._element.querySelector('.card__like-button').classList.remove('card__like-button_active');
+        this._likeButton.classList.remove('card__like-button_active');
     };
     // Отражаем лайки в счетчике
     setLikes(newLike) {
@@ -43,11 +43,7 @@ export default class Card {
         // Отображаем новый лайк в счетчике
         this._likeCounter.textContent = this._like.length;
         // Прибавляем или удаляем лайки
-        if (this.isLiked()) {
-            this._enableLike();
-        } else {
-            this._disableLike();
-        }
+        this._likeButton.classList.toggle('card__like-button_active', this.isLiked());
     };
     // Откатываем лайки
     removeLike() {

@@ -81,10 +81,14 @@ export default class FormValidator {
                 this._toggleButtonState();
             });
         });
-        // Отключаем стандартную отправку формы
-        this._formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
+    };
+
+    // Перезагрузка форм
+    resetValidation() {
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement);
         });
+        this._toggleButtonState();
     };
 
     // Прикрепляем обработчики на элементы форм

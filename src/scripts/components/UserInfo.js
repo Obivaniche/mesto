@@ -10,7 +10,6 @@ export default class UserInfo {
         const userInfo = {
             name: this._name.textContent,
             about: this._about.textContent,
-            avatar: this._avatar.src
         };
         // Возвращаем заполненные данные
         return userInfo;

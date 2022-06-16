@@ -2,13 +2,12 @@
 import Popup from './Popup.js';
 // Создаем класс через наследование
 export default class PopupWithSubmit extends Popup {
-    constructor(popupSelector, handleSubmit) {
-        super(popupSelector);
-        this._confirmButton = this._popupSelector.querySelector('.submit-confirm');
-        this._handleSubmit = handleSubmit
+    constructor(popup) {
+        super(popup);
+        this._confirmButton = this._popup.querySelector('.submit-confirm');
     };
     // Сабмит
-    submit(newSubmit) {
+    setSubmit(newSubmit) {
         this._handleSubmit = newSubmit;
     };
     // Слушатель сабмита

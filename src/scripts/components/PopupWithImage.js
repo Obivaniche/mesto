@@ -2,10 +2,10 @@
 import Popup from './Popup.js';
 // Создаем класс через наследование
 export default class PopupWithImage extends Popup {
-    constructor(popupSelector) {
-        super(popupSelector);
-        this._popupImage = document.querySelector('.popup__img');
-        this._popupDiscripton = document.querySelector('.popup__discripton');
+    constructor(popup) {
+        super(popup);
+        this._popupImage = this._popup.querySelector('.popup__img');
+        this._popupDiscripton = this._popup.querySelector('.popup__discripton');
     };
     // Открываем попап заполняя данные картнки
     open(data) {
